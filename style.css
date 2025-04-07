@@ -1,40 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rcb-red: #DA1818;
+    --rcb-gold: #FFD700;
+    --winning-blocks: #FFD700; /* Winning highlight color */
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    color: var(--rcb-gold);
+    font-family: 'Finger Paint', cursive;
+    background-color: #1C1C1C;
 }
+
+h1 {
+    font-size: 54px;
+    text-transform: uppercase;
+    color: var(--rcb-gold);
+}
+
 .container {
-    text-align: center;
-}
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-}
-.cell {
-    width: 100px;
-    height: 100px;
+    padding: 40px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
-    border: 2px solid #000;
-    font-size: 2em;
-    cursor: pointer;
+    flex-direction: column;
+    background-color: #1C1C1C;
 }
-.cell.taken {
-    pointer-events: none;
+
+#gameboard {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
-#status {
-    margin-top: 20px;
-    font-size: 1.2em;
+
+.box {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--rcb-gold);
+    font-size: 120px;
+    background-color: #DA1818;
+    border-right: 2px solid var(--rcb-gold);
+    border-bottom: 2px solid var(--rcb-gold);
 }
+
+.box:nth-child(3n) {
+    border-right: none;
+}
+
+.box:nth-child(6) ~ .box {
+    border-bottom: none;
+} 
+
 button {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--rcb-gold);
+    color: #1C1C1C;
+    border: none;
+    font-size: 18px;
+    transition: 200ms transform;
+    font-weight: 600;
+    margin-top: 20px;
 }
+
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    background-color: #e6c200;
+}
+.box:hover {
+    box-shadow: 0 0 15px #ff0000; /* RCB Red Glow */
+    transition: 0.3s ease-in-out;
+}
+.box:hover {
+    box-shadow: 0 0 15px #da1818; /* RCB Red Glow */
+    transition: 0.3s ease-in-out;
+}
+
